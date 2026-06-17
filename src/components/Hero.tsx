@@ -1,40 +1,60 @@
+import Image from "next/image";
+
 export function Hero() {
   return (
-    <section
-      id="hero"
-      className="relative overflow-hidden border-b border-border pt-28 pb-20 sm:pt-32 sm:pb-28"
-    >
-      <div
-        className="pointer-events-none absolute inset-0 opacity-40"
-        aria-hidden
-      >
-        <div className="absolute -left-24 top-20 h-72 w-72 rounded-full bg-accent-soft blur-3xl" />
-        <div className="absolute -right-24 bottom-0 h-64 w-64 rounded-full bg-accent-soft blur-3xl" />
-      </div>
-      <div className="relative mx-auto max-w-6xl px-4 sm:px-6 lg:px-8">
-        <p className="mb-4 text-sm font-medium uppercase tracking-widest text-accent">
-          Software engineer
-        </p>
-        <h1 className="max-w-3xl text-4xl font-semibold tracking-tight text-foreground sm:text-5xl lg:text-6xl lg:leading-[1.08]">
-          Building thoughtful web experiences with clarity and craft.
-        </h1>
-        <p className="mt-6 max-w-2xl text-lg leading-relaxed text-muted">
-          I design and ship resilient frontends, polished interfaces, and APIs
-          that scale—focused on performance, accessibility, and calm UX.
-        </p>
-        <div className="mt-10 flex flex-wrap items-center gap-4">
-          <a
-            href="#projects"
-            className="inline-flex items-center justify-center rounded-full bg-accent px-6 py-3 text-sm font-medium text-white shadow-sm transition-opacity hover:opacity-90 dark:text-stone-950"
-          >
-            View work
-          </a>
-          <a
-            href="#contact"
-            className="inline-flex items-center justify-center rounded-full border border-border bg-surface px-6 py-3 text-sm font-medium text-foreground shadow-sm transition-colors hover:border-accent/40 hover:bg-muted-bg"
-          >
-            Contact
-          </a>
+    <section id="hero" className="hero-section">
+      <div className="container">
+        <div className="hero-grid">
+          {/* Left Text Content */}
+          <div className="hero-content">
+            <span className="hero-tagline">
+              Creative Systems Developer
+            </span>
+            <h1 className="hero-title text-display">
+              Building Digital Galaxies with <span className="glow-text-cyan">Precision</span> and <span className="glow-text-pink">Craft</span>.
+            </h1>
+            <p className="hero-description">
+              I am <strong>Rifky Ahamed</strong>. I design and build high-performance, 
+              interactive web applications and resilient system architectures 
+              focused on sleek typography, spatial motions, and premium engineering.
+            </p>
+            <div className="hero-buttons">
+              <a href="#projects" className="btn-neon btn-neon-cyan">
+                <span>Explore Projects</span>
+                <svg
+                  width="16"
+                  height="16"
+                  viewBox="0 0 24 24"
+                  fill="none"
+                  stroke="currentColor"
+                  strokeWidth="2.5"
+                  strokeLinecap="round"
+                  strokeLinejoin="round"
+                >
+                  <line x1="5" y1="12" x2="19" y2="12"></line>
+                  <polyline points="12 5 19 12 12 19"></polyline>
+                </svg>
+              </a>
+              <a href="#contact" className="btn-neon btn-neon-outline">
+                <span>Let&apos;s Connect</span>
+              </a>
+            </div>
+          </div>
+
+          {/* Right Visual Image */}
+          <div className="hero-visual">
+            <div className="hero-avatar-container">
+              <Image
+                src="/hero-avatar.png"
+                alt="Rifky Ahamed Cosmic Avatar"
+                className="hero-avatar-img"
+                width={320}
+                height={320}
+                priority
+              />
+              <div className="hero-avatar-glow" aria-hidden="true" />
+            </div>
+          </div>
         </div>
       </div>
     </section>

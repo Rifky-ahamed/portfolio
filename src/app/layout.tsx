@@ -1,21 +1,11 @@
 import type { Metadata } from "next";
-import { Geist, Geist_Mono } from "next/font/google";
 import "./globals.css";
 
-const geistSans = Geist({
-  variable: "--font-geist-sans",
-  subsets: ["latin"],
-});
-
-const geistMono = Geist_Mono({
-  variable: "--font-geist-mono",
-  subsets: ["latin"],
-});
-
 export const metadata: Metadata = {
-  title: "Alex Chen — Software engineer",
+  title: "Rifky Ahamed | Futuristic Creative Developer",
   description:
-    "Portfolio of Alex Chen: frontend engineering, product interfaces, and reliable web experiences.",
+    "Portfolio of Rifky Ahamed, a space-inspired creative developer and full-stack engineer. Crafting high-fidelity, interactive, and premium web systems.",
+  keywords: ["Rifky Ahamed", "Creative Developer", "Next.js Developer", "Frontend Engineer", "Interactive Portfolio", "Space Theme"],
 };
 
 export default function RootLayout({
@@ -24,11 +14,19 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html
-      lang="en"
-      className={`${geistSans.variable} ${geistMono.variable} h-full antialiased`}
-    >
-      <body className="flex min-h-full flex-col">{children}</body>
+    <html lang="en" className="h-full">
+      <body className="flex min-h-full flex-col">
+        {/* Decorative Space Particles and Nebulae Background */}
+        <div className="cosmic-background" aria-hidden="true">
+          <div className="starfield" />
+          <div className="starfield-deep" />
+          <div className="nebula nebula-purple" />
+          <div className="nebula nebula-cyan" />
+          <div className="nebula nebula-pink" />
+        </div>
+        
+        {children}
+      </body>
     </html>
   );
 }

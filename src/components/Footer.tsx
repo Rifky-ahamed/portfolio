@@ -1,34 +1,62 @@
+"use client";
+
 export function Footer() {
+  const scrollToTop = () => {
+    window.scrollTo({ top: 0, behavior: "smooth" });
+  };
+
   return (
-    <footer className="border-t border-border py-10">
-      <div className="mx-auto flex max-w-6xl flex-col items-start justify-between gap-6 px-4 sm:flex-row sm:items-center sm:px-6 lg:px-8">
-        <p className="text-sm text-muted">
-          © {new Date().getFullYear()} Alex Chen. Crafted with Next.js and
-          Tailwind CSS.
+    <footer className="footer">
+      <div className="footer-container">
+        <p className="footer-text">
+          © {new Date().getFullYear()} Rifky Ahamed. Designed & coded with custom cosmic CSS.
         </p>
-        <div className="flex gap-6 text-sm">
-          <a
-            href="https://github.com"
-            className="text-muted transition-colors hover:text-foreground"
-            target="_blank"
-            rel="noopener noreferrer"
+        
+        <div className="flex align-center" style={{ gap: "2rem" }}>
+          <div className="footer-links">
+            <a
+              href="https://github.com"
+              className="footer-link"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              GitHub
+            </a>
+            <a
+              href="https://linkedin.com"
+              className="footer-link"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              LinkedIn
+            </a>
+            <a
+              href="mailto:hello@rifkyahamed.com"
+              className="footer-link"
+            >
+              Email
+            </a>
+          </div>
+
+          <button
+            onClick={scrollToTop}
+            className="back-to-top"
+            aria-label="Scroll to top of page"
+            type="button"
           >
-            GitHub
-          </a>
-          <a
-            href="https://linkedin.com"
-            className="text-muted transition-colors hover:text-foreground"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            LinkedIn
-          </a>
-          <a
-            href="mailto:hello@alexchen.dev"
-            className="text-muted transition-colors hover:text-foreground"
-          >
-            Email
-          </a>
+            <svg
+              width="18"
+              height="18"
+              viewBox="0 0 24 24"
+              fill="none"
+              stroke="currentColor"
+              strokeWidth="2.5"
+              strokeLinecap="round"
+              strokeLinejoin="round"
+            >
+              <polyline points="18 15 12 9 6 15"></polyline>
+            </svg>
+          </button>
         </div>
       </div>
     </footer>

@@ -1,62 +1,70 @@
 const projects = [
   {
-    name: "Atlas Dashboard",
+    name: "Stellar Dashboard",
     description:
-      "Operational analytics for logistics teams—real-time maps, saved views, and exportable reports.",
-    stack: "Next.js · TypeScript · PostgreSQL",
+      "Real-time operational telemetry and status tracking for distributed nodes—featuring live orbital mapping, canvas rendering, and exportable reports.",
+    stack: "Next.js · TypeScript · PostgreSQL · Chart.js",
     href: "#",
   },
   {
-    name: "Northwind Design System",
+    name: "Nebula Design Protocol",
     description:
-      "Component library and documentation used across three products, with tokens and accessibility baked in.",
-    stack: "React · Storybook · Tailwind",
+      "A futuristic, tokenized design system and interactive component library engineered for speed, responsiveness, and seamless access standards.",
+    stack: "React · CSS Modules · Storybook · Figma",
     href: "#",
   },
   {
-    name: "Lumen Checkout",
+    name: "Quantum Portal",
     description:
-      "Headless commerce flow with optimistic UI, Apple Pay, and fraud checks—sub-200ms perceived latency.",
-    stack: "Next.js · Stripe · Edge",
+      "Ultra-fast, headless commerce gateway utilizing Edge middleware, optimistic state reconciliation, and payment validations. Average latency below 120ms.",
+    stack: "Next.js · Stripe · Cloudflare Edge",
     href: "#",
   },
 ];
 
 export function Projects() {
   return (
-    <section id="projects" className="border-b border-border py-20 sm:py-28">
-      <div className="mx-auto max-w-6xl px-4 sm:px-6 lg:px-8">
-        <div className="flex flex-col gap-4 sm:flex-row sm:items-end sm:justify-between">
-          <div className="max-w-2xl">
-            <h2 className="text-sm font-semibold uppercase tracking-widest text-accent">
-              Projects
+    <section id="projects" className="section">
+      <div className="container">
+        <div className="section-title-container" style={{ display: "flex", justifyContent: "space-between", alignItems: "flex-end", flexWrap: "wrap", gap: "1.5rem" }}>
+          <div>
+            <span className="section-label">Selected Launch Logs</span>
+            <h2 className="section-heading text-display">
+              Featured <span className="glow-text-pink">Projects</span>
             </h2>
-            <p className="mt-3 text-2xl font-semibold tracking-tight text-foreground sm:text-3xl">
-              Selected work from recent roles.
-            </p>
           </div>
-          <p className="max-w-md text-sm text-muted">
-            Replace summaries and links with your own case studies or live demos.
+          <p style={{ color: "var(--color-text-secondary)", fontSize: "0.95rem", maxWidth: "400px" }}>
+            Exploring new frontiers in frontend engineering, real-time telemetry, and latency tuning.
           </p>
         </div>
-        <div className="mt-12 grid gap-6 lg:grid-cols-3">
+
+        <div className="projects-grid">
           {projects.map((project) => (
             <article
               key={project.name}
-              className="group flex flex-col rounded-2xl border border-border bg-surface p-6 shadow-sm transition-shadow hover:shadow-md"
+              className="glass-panel project-card"
             >
-              <h3 className="text-lg font-semibold tracking-tight text-foreground">
-                {project.name}
-              </h3>
-              <p className="mt-3 flex-1 text-sm leading-relaxed text-muted">
-                {project.description}
-              </p>
-              <p className="mt-4 font-mono text-xs text-muted">{project.stack}</p>
+              <h3 className="project-name text-display">{project.name}</h3>
+              <p className="project-desc">{project.description}</p>
+              <p className="project-stack">{project.stack}</p>
               <a
                 href={project.href}
-                className="mt-6 inline-flex text-sm font-medium text-accent transition-opacity group-hover:opacity-80"
+                className="project-link"
               >
-                View details →
+                <span>Launch Project</span>
+                <svg
+                  width="16"
+                  height="16"
+                  viewBox="0 0 24 24"
+                  fill="none"
+                  stroke="currentColor"
+                  strokeWidth="2.5"
+                  strokeLinecap="round"
+                  strokeLinejoin="round"
+                >
+                  <line x1="7" y1="17" x2="17" y2="7"></line>
+                  <polyline points="7 7 17 7 17 17"></polyline>
+                </svg>
               </a>
             </article>
           ))}

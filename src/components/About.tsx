@@ -1,32 +1,52 @@
 export function About() {
   return (
-    <section
-      id="about"
-      className="border-b border-border py-20 sm:py-28"
-    >
-      <div className="mx-auto max-w-6xl px-4 sm:px-6 lg:px-8">
-        <div className="grid gap-12 lg:grid-cols-12 lg:gap-16">
-          <div className="lg:col-span-4">
-            <h2 className="text-sm font-semibold uppercase tracking-widest text-accent">
-              About
-            </h2>
-            <p className="mt-3 text-2xl font-semibold tracking-tight text-foreground sm:text-3xl">
-              Pragmatic builder with an eye for detail.
+    <section id="about" className="section">
+      <div className="container">
+        <div className="section-title-container">
+          <span className="section-label">Origin & Mission</span>
+          <h2 className="section-heading text-display">
+            Engineering with <span className="glow-text-pink">Curiosity</span> and <span className="glow-text-cyan">Logic</span>
+          </h2>
+        </div>
+
+        <div className="about-grid">
+          {/* Left Text */}
+          <div className="about-text">
+            <p>
+              I am a full-stack creative developer obsessed with creating high-fidelity, 
+              interactive user interfaces and scaling robust, clean application architectures. 
+              My development stack revolves around the React, Next.js, and TypeScript ecosystems, 
+              paired with modern database structures.
+            </p>
+            <p>
+              Drawing inspiration from science fiction, cosmic geometries, and dark UI designs, 
+              I design websites that feel premium and alive. I pay meticulous attention to micro-interactions, 
+              loading states, and accessibility, ensuring each build is visually stunning and accessible to everyone.
+            </p>
+            <p>
+              Outside of coding, I focus on optimizing bundler architectures, playing with WebGL/Three.js, 
+              and exploring the frontiers of decentralized systems and space science.
             </p>
           </div>
-          <div className="space-y-6 text-base leading-relaxed text-muted lg:col-span-8 lg:pt-1">
-            <p>
-              I am a full-stack leaning frontend engineer based in San
-              Francisco. I enjoy turning complex problems into simple, elegant
-              interfaces—whether that is a design system, a data-heavy dashboard,
-              or a marketing site that needs to feel premium without noise.
-            </p>
-            <p>
-              Outside of code, I mentor junior developers, contribute to open
-              source when I can, and keep learning about typography, motion, and
-              product thinking so engineering decisions stay aligned with user
-              outcomes.
-            </p>
+
+          {/* Right Stats Cards */}
+          <div className="about-stats">
+            <div className="glass-panel stat-card">
+              <span className="stat-number text-display">3+</span>
+              <span className="stat-label">Years of Orbit</span>
+            </div>
+            <div className="glass-panel stat-card">
+              <span className="stat-number text-display">25+</span>
+              <span className="stat-label">Systems Launched</span>
+            </div>
+            <div className="glass-panel stat-card">
+              <span className="stat-number text-display">99%</span>
+              <span className="stat-label">LCP Optimizations</span>
+            </div>
+            <div className="glass-panel stat-card">
+              <span className="stat-number text-display">100%</span>
+              <span className="stat-label">Cosmic Craft</span>
+            </div>
           </div>
         </div>
       </div>

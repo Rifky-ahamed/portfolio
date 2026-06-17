@@ -32,92 +32,119 @@ export function Navbar() {
   }, [menuOpen]);
 
   return (
-    <header
-      className={`fixed inset-x-0 top-0 z-50 transition-[box-shadow,background-color] duration-200 ${
-        scrolled
-          ? "border-b border-border bg-background/85 shadow-sm backdrop-blur-md"
-          : "border-b border-transparent bg-background/70 backdrop-blur-sm"
-      }`}
-    >
-      <nav className="mx-auto flex h-16 max-w-6xl items-center justify-between gap-3 px-4 sm:px-6 lg:px-8">
+    <header className={`navbar-header ${scrolled ? "scrolled" : "transparent"}`}>
+      <nav className="navbar-container">
         <a
           href="#hero"
-          className="shrink-0 text-sm font-semibold tracking-tight text-foreground"
+          className="navbar-logo"
           onClick={() => setMenuOpen(false)}
         >
-          Alex Chen
+          Rifky Ahamed
         </a>
-        <ul className="hidden items-center gap-1 md:flex">
+
+        {/* Desktop Links */}
+        <ul className="navbar-links">
           {links.map((link) => (
             <li key={link.href}>
               <a
                 href={link.href}
-                className="rounded-md px-3 py-2 text-sm text-muted transition-colors hover:bg-muted-bg hover:text-foreground"
+                className="nav-link"
               >
                 {link.label}
               </a>
             </li>
           ))}
         </ul>
-        <div className="flex items-center gap-2">
+
+        <div className="nav-actions">
           <a
             href="#contact"
-            className="hidden rounded-full bg-accent px-4 py-2 text-sm font-medium text-white shadow-sm transition-opacity hover:opacity-90 sm:inline-flex dark:text-stone-950"
+            className="btn-neon btn-neon-cyan"
             onClick={() => setMenuOpen(false)}
+            style={{ padding: "0.5rem 1.2rem", fontSize: "0.85rem" }}
           >
             Let&apos;s talk
           </a>
+
+          {/* Hamburger Menu Toggle */}
           <button
             type="button"
-            className="inline-flex h-10 w-10 items-center justify-center rounded-md border border-border text-foreground md:hidden"
+            className="mobile-toggle"
             aria-expanded={menuOpen}
             aria-controls="mobile-nav"
             aria-label={menuOpen ? "Close menu" : "Open menu"}
             onClick={() => setMenuOpen((o) => !o)}
           >
-            <span className="sr-only">Menu</span>
-            <span className="relative block h-3.5 w-4">
+            <span style={{ position: "relative", display: "block", width: "16px", height: "12px" }}>
               <span
-                className={`absolute left-0 block h-0.5 w-full rounded-full bg-foreground transition-transform duration-200 ${
-                  menuOpen ? "top-1.5 rotate-45" : "top-0"
-                }`}
+                style={{
+                  position: "absolute",
+                  left: 0,
+                  top: menuOpen ? "5px" : 0,
+                  display: "block",
+                  height: "2px",
+                  width: "100%",
+                  borderRadius: "99px",
+                  background: "currentColor",
+                  transition: "transform 0.2s, top 0.2s",
+                  transform: menuOpen ? "rotate(45deg)" : "none",
+                }}
               />
               <span
-                className={`absolute left-0 top-1.5 block h-0.5 w-full rounded-full bg-foreground transition-opacity duration-200 ${
-                  menuOpen ? "opacity-0" : "opacity-100"
-                }`}
+                style={{
+                  position: "absolute",
+                  left: 0,
+                  top: "5px",
+                  display: "block",
+                  height: "2px",
+                  width: "100%",
+                  borderRadius: "99px",
+                  background: "currentColor",
+                  transition: "opacity 0.2s",
+                  opacity: menuOpen ? 0 : 1,
+                }}
               />
               <span
-                className={`absolute left-0 block h-0.5 w-full rounded-full bg-foreground transition-transform duration-200 ${
-                  menuOpen ? "top-1.5 -rotate-45" : "top-3"
-                }`}
+                style={{
+                  position: "absolute",
+                  left: 0,
+                  top: menuOpen ? "5px" : "10px",
+                  display: "block",
+                  height: "2px",
+                  width: "100%",
+                  borderRadius: "99px",
+                  background: "currentColor",
+                  transition: "transform 0.2s, top 0.2s",
+                  transform: menuOpen ? "rotate(-45deg)" : "none",
+                }}
               />
             </span>
           </button>
         </div>
       </nav>
+
+      {/* Mobile Drawer */}
       <div
         id="mobile-nav"
-        className={`border-b border-border bg-background/95 backdrop-blur-md md:hidden ${
-          menuOpen ? "block" : "hidden"
-        }`}
+        className={`mobile-nav-panel ${menuOpen ? "open" : ""}`}
       >
-        <ul className="mx-auto flex max-w-6xl flex-col gap-1 px-4 py-3 sm:px-6 lg:px-8">
+        <ul className="mobile-links">
           {links.map((link) => (
             <li key={link.href}>
               <a
                 href={link.href}
-                className="block rounded-md px-3 py-2.5 text-sm text-foreground hover:bg-muted-bg"
+                className="mobile-link"
                 onClick={() => setMenuOpen(false)}
               >
                 {link.label}
               </a>
             </li>
           ))}
-          <li className="pt-1 sm:hidden">
+          <li style={{ padding: "0.5rem 0.8rem" }}>
             <a
               href="#contact"
-              className="block rounded-full bg-accent px-4 py-2.5 text-center text-sm font-medium text-white dark:text-stone-950"
+              className="btn-neon btn-neon-cyan"
+              style={{ display: "flex", justifyContent: "center", width: "100%" }}
               onClick={() => setMenuOpen(false)}
             >
               Let&apos;s talk

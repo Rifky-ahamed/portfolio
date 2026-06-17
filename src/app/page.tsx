@@ -9,9 +9,9 @@ import { Skills } from "@/components/Skills";
 
 export default function Home() {
   return (
-    <div className="flex min-h-full flex-col bg-background text-foreground">
+    <div className="flex flex-col" style={{ minHeight: "100vh", position: "relative" }}>
       <Navbar />
-      <main className="flex-1 font-sans">
+      <main style={{ flex: "1 0 auto" }}>
         <Hero />
         <About />
         <Skills />
